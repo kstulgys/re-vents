@@ -15,10 +15,12 @@ import {
 } from "semantic-ui-react";
 import EventListItem from "./EventListItem";
 
-const EventList = ({ events }) => (
+const EventList = ({ events, onEventEdit }) => (
   <div>
     <h1>Event List... </h1>
-    {events.map(event => <EventListItem key={event.id} event={event} />)}
+    {events.map(event => (
+      <EventListItem key={event.id} event={event} onEventEdit={onEventEdit} />
+    ))}
   </div>
 );
 

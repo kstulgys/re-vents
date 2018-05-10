@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import Header from "./Header";
 import EventDashboard from "./EventDashboard";
-import eventsMockData from "./events";
 
 import {
   Menu,
@@ -26,14 +25,12 @@ const EventList = ({ events }) => (
 );
 
 class App extends Component {
-  state = { events: eventsMockData };
-
   render() {
     return (
       <div>
         <Header />
         <Container>
-          <EventDashboard events={this.state.events} />
+          <EventDashboard />
         </Container>
       </div>
     );

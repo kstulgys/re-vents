@@ -20,34 +20,22 @@ import {
 
 import EventListAtendee from "./EventListAtendee";
 
-const EventListItem = ({
-  event: {
-    title,
-    description,
-    date,
-    category,
-    city,
-    venue,
-    hostedBy,
-    hostPhotoUrl,
-    attendees
-  }
-}) => {
+const EventListItem = ({ event, onEventEdit }) => {
   return (
     <Segment.Group>
       <Segment raised color="orange">
         <Item.Group relaxed>
           <Item>
-            <Item.Image circular size="tiny" src={hostPhotoUrl} />
+            <Item.Image circular size="tiny" src={event.hostPhotoUrl} />
             <Item.Content>
-              <Item.Header as="a">{title}</Item.Header>
+              <Item.Header as="a">{event.title}</Item.Header>
               <Item.Meta>
                 <List horizontal>
-                  <List.Item icon="calendar" content={date} /> |
-                  <List.Item icon="marker" content={venue} />
+                  <List.Item icon="calendar" content={event.date} /> |
+                  <List.Item icon="marker" content={event.venue} />
                 </List>
               </Item.Meta>
-              <Item.Description>{description}</Item.Description>
+              <Item.Description>{event.description}</Item.Description>
               <Item.Extra>
                 <Button
                   icon="user"
@@ -55,6 +43,7 @@ const EventListItem = ({
                   content="View"
                   floated="right"
                   style={{ marginRight: 5 }}
+                  onClick={onEventEdit(event)}
                 />
               </Item.Extra>
             </Item.Content>
@@ -64,9 +53,10 @@ const EventListItem = ({
 
       <Segment secondary>
         <List horizontal>
-          {attendees.map(attendee => (
-            <EventListAtendee key={attendee.id} attendee={attendee} />
-          ))}
+          {event.attendees &&
+            event.attendees.map(attendee => (
+              <EventListAtendee key={attendee.id} attendee={attendee} />
+            ))}
         </List>
       </Segment>
     </Segment.Group>
