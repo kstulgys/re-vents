@@ -45,9 +45,13 @@ class EventForm extends Component {
     this.setState({ event: newEvent });
   };
 
-  handleSubmit = () => {
-    const newEvent = this.state.event;
-    this.props.createEvent(newEvent);
+  handleSubmit = e => {
+    e.preventDefault();
+    if (this.props.selectedEvent.id) {
+      this.props.onEventUpdate(this.state.event);
+    } else {
+      this.props.createEvent(this.state.event);
+    }
   };
 
   render() {

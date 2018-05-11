@@ -20,7 +20,7 @@ import {
 
 import EventListAtendee from "./EventListAtendee";
 
-const EventListItem = ({ event, onEventEdit }) => {
+const EventListItem = ({ event, onEventOpen, onEventDelete }) => {
   return (
     <Segment.Group>
       <Segment raised color="orange">
@@ -38,12 +38,18 @@ const EventListItem = ({ event, onEventEdit }) => {
               <Item.Description>{event.description}</Item.Description>
               <Item.Extra>
                 <Button
-                  icon="user"
                   color="orange"
                   content="View"
                   floated="right"
                   style={{ marginRight: 5 }}
-                  onClick={onEventEdit(event)}
+                  onClick={onEventOpen(event)}
+                />
+                <Button
+                  color="red"
+                  content="Delete"
+                  floated="right"
+                  style={{ marginRight: 5 }}
+                  onClick={onEventDelete(event.id)}
                 />
               </Item.Extra>
             </Item.Content>
