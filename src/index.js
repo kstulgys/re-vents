@@ -19,12 +19,6 @@ import {
   Feed
 } from "semantic-ui-react";
 
-const EventList = ({ events }) => (
-  <div>
-    {events.map(event => <EventListItem key={event.id} event={event} />)}
-  </div>
-);
-
 class App extends Component {
   render() {
     return (
