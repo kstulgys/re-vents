@@ -15,10 +15,11 @@ import {
   Header
 } from "semantic-ui-react";
 
-const HomePage = () => (
+const HomePage = ({ history }) => (
   <div className="parallax" style={styles.parallax} fluid>
     <h1 style={styles.textContainer}>Hello from const HomePage</h1>
     <Button
+      onClick={() => history.push("/events")}
       content="Check Out The Events"
       basic
       color="orange"
