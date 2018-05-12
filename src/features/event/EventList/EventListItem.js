@@ -38,6 +38,7 @@ const EventListItem = ({ event, onEventOpen, onEventDelete }) => {
               <Item.Description>{event.description}</Item.Description>
               <Item.Extra>
                 <Button
+                  basic
                   color="orange"
                   content="View"
                   floated="right"

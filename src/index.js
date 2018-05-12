@@ -1,8 +1,8 @@
 import React, { Component } from "react";
+import "normalize.css";
 import { render } from "react-dom";
-import Header from "./Header";
-import EventDashboard from "./EventDashboard";
-
+import App from "./app/layout/App";
+import { BrowserRouter } from "react-router-dom";
 import {
   Menu,
   Segment,
@@ -18,23 +18,10 @@ import {
   Feed
 } from "semantic-ui-react";
 
-const EventList = ({ events }) => (
-  <div>
-    {events.map(event => <EventListItem key={event.id} event={event} />)}
-  </div>
+render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+
+  document.getElementById("root")
 );
-
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Header />
-        <Container>
-          <EventDashboard />
-        </Container>
-      </div>
-    );
-  }
-}
-
-render(<App />, document.getElementById("root"));

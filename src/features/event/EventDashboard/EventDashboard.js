@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import cuid from "cuid";
 import eventsMockData from "./events";
+import EventForm from "../EventForm/EventForm";
+import EventList from "../EventList/EventList";
+
 import {
   Menu,
   Segment,
@@ -15,9 +18,6 @@ import {
   Card,
   Feed
 } from "semantic-ui-react";
-
-import EventForm from "./EventForm";
-import EventList from "./EventList";
 
 class EventDashboard extends Component {
   state = {
