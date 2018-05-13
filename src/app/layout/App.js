@@ -9,20 +9,7 @@ import SettingsDashboard from "../../features/user/settings/SettingsDashboard";
 import EventForm from "../../features/event/EventForm/EventForm";
 
 import { Route, Switch } from "react-router-dom";
-import {
-  Menu,
-  Segment,
-  Container,
-  Button,
-  Grid,
-  Form,
-  Checkbox,
-  Item,
-  Image,
-  Divider,
-  Card,
-  Feed
-} from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 
 class App extends Component {
   render() {

@@ -1,27 +1,18 @@
-import React, { Component } from "react";
-import "normalize.css";
+import React from "react";
 import { render } from "react-dom";
-import App from "./app/layout/App";
 import { BrowserRouter } from "react-router-dom";
-import {
-  Menu,
-  Segment,
-  Container,
-  Button,
-  Grid,
-  Form,
-  Checkbox,
-  Item,
-  Image,
-  Divider,
-  Card,
-  Feed
-} from "semantic-ui-react";
+import { Provider } from "react-redux";
+import App from "./app/layout/App";
+import { configureStore } from "./app/store/configureStore";
+
+const store = configureStore();
 
 render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
 
   document.getElementById("root")
 );

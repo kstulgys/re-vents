@@ -1,27 +1,16 @@
 import React, { Component } from "react";
+import { Button, Grid } from "semantic-ui-react";
+import { connect } from "react-redux";
 import cuid from "cuid";
-import eventsMockData from "./events";
 import EventForm from "../EventForm/EventForm";
 import EventList from "../EventList/EventList";
 
-import {
-  Menu,
-  Segment,
-  Container,
-  Button,
-  Grid,
-  Form,
-  Checkbox,
-  Item,
-  Image,
-  Divider,
-  Card,
-  Feed
-} from "semantic-ui-react";
+const mapState = ({ events }) => ({
+  events
+});
 
 class EventDashboard extends Component {
   state = {
-    events: eventsMockData,
     isOpen: false,
     selectedEvent: null
   };
@@ -72,38 +61,34 @@ class EventDashboard extends Component {
 
   render() {
     return (
-      <div>
-        <Container style={{ marginTop: 50 }}>
-          <Grid columns={2} padded>
-            <Grid.Column width={10}>
-              <EventList
-                onEventDelete={this.handleDeleteEvent}
-                events={this.state.events}
-                onEventOpen={this.handleOpenEvent}
-              />
-            </Grid.Column>
+      <Grid>
+        <Grid.Column width={10}>
+          <EventList
+            onEventDelete={this.handleDeleteEvent}
+            events={this.props.events}
+            onEventOpen={this.handleOpenEvent}
+          />
+        </Grid.Column>
 
-            <Grid.Column width={6}>
-              <Button
-                onClick={this.handleFormOpen}
-                color="orange"
-                content="Create Event"
-              />
+        <Grid.Column width={6}>
+          <Button
+            onClick={this.handleFormOpen}
+            color="orange"
+            content="Create Event"
+          />
 
-              {this.state.isOpen && (
-                <EventForm
-                  onEventUpdate={this.handleUpdateEvent}
-                  selectedEvent={this.state.selectedEvent}
-                  createEvent={this.handleCreateEvent}
-                  handleFormClose={this.handleFormClose}
-                />
-              )}
-            </Grid.Column>
-          </Grid>
-        </Container>
-      </div>
+          {this.state.isOpen && (
+            <EventForm
+              onEventUpdate={this.handleUpdateEvent}
+              selectedEvent={this.state.selectedEvent}
+              createEvent={this.handleCreateEvent}
+              handleFormClose={this.handleFormClose}
+            />
+          )}
+        </Grid.Column>
+      </Grid>
     );
   }
 }
 
-export default EventDashboard;
+export default connect(mapState)(EventDashboard);
