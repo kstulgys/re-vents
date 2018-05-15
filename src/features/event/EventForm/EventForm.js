@@ -1,20 +1,9 @@
 import React, { Component } from "react";
-import {
-  Menu,
-  Segment,
-  Container,
-  Button,
-  Grid,
-  Form,
-  Checkbox,
-  Item,
-  Image,
-  Divider,
-  Card,
-  Feed
-} from "semantic-ui-react";
+import { Segment, Button, Form } from "semantic-ui-react";
+import cuid from "cuid";
 
 const blankForm = {
+  id: null,
   title: "",
   date: "",
   city: "",
@@ -37,6 +26,7 @@ class EventForm extends Component {
     if (this.props.selectedEvent !== nextProps.selectedEvent) {
       this.setState({ event: nextProps.selectedEvent || blankForm });
     }
+    null;
   }
 
   handleInputChange = e => {
@@ -47,15 +37,17 @@ class EventForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    if (this.props.selectedEvent.id) {
+
+    if (this.props.selectedEvent) {
       this.props.onEventUpdate(this.state.event);
     } else {
-      this.props.createEvent(this.state.event);
+      const eventWithId = { ...this.state.event, id: cuid() };
+      this.props.createEvent(eventWithId);
     }
   };
 
   render() {
-    console.log(this.state);
+    console.log("selectedE:", this.props.selectedEvent);
     return (
       <Segment raised color="orange">
         <Form>
