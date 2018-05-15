@@ -1,0 +1,4 @@
+ - check js extension
+ - check commas in the method
+ - check method export (export default or export const)
+ - check method import (`{method} or method`)
