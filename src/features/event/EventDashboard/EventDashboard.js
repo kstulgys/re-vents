@@ -1,13 +1,19 @@
 import React, { Component } from "react";
 import { Button, Grid } from "semantic-ui-react";
 import { connect } from "react-redux";
-import cuid from "cuid";
 import EventForm from "../EventForm/EventForm";
 import EventList from "../EventList/EventList";
+import { createEvent, updateEvent, deleteEvent } from "../eventActions";
 
 const mapState = ({ events }) => ({
   events
 });
+
+const actions = {
+  createEvent,
+  updateEvent,
+  deleteEvent
+};
 
 class EventDashboard extends Component {
   state = {
@@ -26,25 +32,6 @@ class EventDashboard extends Component {
     this.setState(prevState => ({ isOpen: !prevState.isOpen }));
   };
 
-  handleUpdateEvent = eventUpdate => {
-    this.setState({
-      events: this.state.events.map(event => {
-        if (eventUpdate.id === event.id) {
-          return Object.assign({}, eventUpdate);
-        }
-        return event;
-      }),
-      isOpen: false,
-      selectedEvent: null
-    });
-  };
-
-  handleCreateEvent = newEvent => {
-    newEvent.id = cuid();
-    const newEvents = [...this.state.events, newEvent];
-    this.setState({ events: newEvents, isOpen: false });
-  };
-
   handleOpenEvent = eventOpen => () => {
     this.setState({
       isOpen: true,
@@ -52,11 +39,21 @@ class EventDashboard extends Component {
     });
   };
 
+  handleUpdateEvent = eventUpdate => {
+    this.props.updateEvent(eventUpdate);
+    this.setState({
+      isOpen: false,
+      selectedEvent: null
+    });
+  };
+
+  handleCreateEvent = newEvent => {
+    this.props.createEvent(newEvent);
+    this.setState({ isOpen: false });
+  };
+
   handleDeleteEvent = eventId => () => {
-    const updatedEvents = this.state.events.filter(
-      event => event.id !== eventId
-    );
-    this.setState({ events: updatedEvents });
+    this.props.deleteEvent(eventId);
   };
 
   render() {
@@ -91,4 +88,4 @@ class EventDashboard extends Component {
   }
 }
 
-export default connect(mapState)(EventDashboard);
+export default connect(mapState, actions)(EventDashboard);
