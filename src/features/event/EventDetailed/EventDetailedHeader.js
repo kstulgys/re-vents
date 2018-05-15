@@ -1,8 +1,10 @@
 import React from "react";
 import { Segment, Image, Item, Header, Button } from "semantic-ui-react";
 
+
 const EventDetailedHeader = ({ event }) => (
   <Segment.Group raised>
+
     <Segment color="orange" attached="top" basic style={{ padding: 0 }}>
       <Image
         style={{ padding: 0, filter: "brightness(50%)" }}
@@ -23,6 +25,7 @@ const EventDetailedHeader = ({ event }) => (
         <Item.Group>
           <Item>
             <Item.Content>
+
               <Header
                 size="huge"
                 content={event.title}
@@ -31,6 +34,11 @@ const EventDetailedHeader = ({ event }) => (
               <p>{event.date}</p>
               <p>
                 Hosted By <strong>{event.hostedBy}</strong>
+
+              <Header size="huge" content="Hello" style={{ color: "white" }} />
+              <p>Event Date</p>
+              <p>
+                Hosted By <strong>Karolis Stulgys</strong>
               </p>
             </Item.Content>
           </Item>

@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Grid, Segment, Icon, Item, Header, Button } from "semantic-ui-react";
 
 const EventDetailedInfo = ({ event }) => (
@@ -39,6 +40,7 @@ const EventDetailedInfo = ({ event }) => (
       </Grid>
     </Segment>
   </Segment.Group>
+
 );
 
 export default EventDetailedInfo;

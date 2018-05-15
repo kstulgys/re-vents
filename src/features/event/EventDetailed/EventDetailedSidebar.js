@@ -1,4 +1,5 @@
 import React from "react";
+
 import { List, Segment, Image, Item, Header, Label } from "semantic-ui-react";
 
 const isHost = false;
@@ -46,6 +47,7 @@ const EventDetailedSidebar = ({ attendees }) => (
       </List>
     </Segment>
   </Segment.Group>
+
 );
 
 export default EventDetailedSidebar;

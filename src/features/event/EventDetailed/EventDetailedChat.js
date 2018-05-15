@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   Form,
   Segment,
@@ -97,6 +98,7 @@ const EventDetailedChat = () => (
       </Comment.Group>
     </Segment>
   </Segment.Group>
+
 );
 
 export default EventDetailedChat;
