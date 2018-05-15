@@ -5,8 +5,8 @@ import EventListAtendee from "./EventListAtendee";
 
 const EventListItem = ({ event, onEventOpen, onEventDelete }) => {
   return (
-    <Segment.Group>
-      <Segment raised color="orange">
+    <Segment.Group raised>
+      <Segment color="orange" style={{ paddingBottom: 0 }}>
         <Item.Group relaxed>
           <Item>
             <Item.Image circular size="tiny" src={event.hostPhotoUrl} />
