@@ -1,29 +1,12 @@
 import React from "react";
-
-import {
-  Menu,
-  Segment,
-  Container,
-  Button,
-  Grid,
-  Form,
-  Checkbox,
-  Item,
-  Image,
-  Divider,
-  Card,
-  Feed,
-  List,
-  Label,
-  Icon
-} from "semantic-ui-react";
-
+import { Segment, Button, Item, List } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 import EventListAtendee from "./EventListAtendee";
 
 const EventListItem = ({ event, onEventOpen, onEventDelete }) => {
   return (
-    <Segment.Group>
-      <Segment raised color="orange">
+    <Segment.Group raised>
+      <Segment color="orange" style={{ paddingBottom: 0 }}>
         <Item.Group relaxed>
           <Item>
             <Item.Image circular size="tiny" src={event.hostPhotoUrl} />
@@ -43,7 +26,8 @@ const EventListItem = ({ event, onEventOpen, onEventDelete }) => {
                   content="View"
                   floated="right"
                   style={{ marginRight: 5 }}
-                  onClick={onEventOpen(event)}
+                  as={Link}
+                  to={`/event/${event.id}`}
                 />
                 <Button
                   color="red"
