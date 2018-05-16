@@ -1,6 +1,6 @@
 import React from "react";
 import { Segment, Image, Item, Header, Button } from "semantic-ui-react";
-
+import { Link } from "react-router-dom";
 const EventDetailedHeader = ({ event }) => (
   <Segment.Group raised>
     <Segment color="orange" attached="top" basic style={{ padding: 0 }}>
@@ -41,7 +41,9 @@ const EventDetailedHeader = ({ event }) => (
     <Segment attached="bottom">
       <Button>Left </Button>
       <Button color="teal">Left </Button>
-      <Button floated="right">Right </Button>
+      <Button as={Link} to={`/manage/${event.id}`} floated="right">
+        Manage Event
+      </Button>
     </Segment>
   </Segment.Group>
 );
