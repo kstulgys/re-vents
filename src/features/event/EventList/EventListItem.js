@@ -3,7 +3,7 @@ import { Segment, Button, Item, List } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import EventListAtendee from "./EventListAtendee";
 
-const EventListItem = ({ event, onEventOpen, onEventDelete }) => {
+const EventListItem = ({ event, onEventDelete }) => {
   return (
     <Segment.Group raised>
       <Segment color="orange" style={{ paddingBottom: 0 }}>
