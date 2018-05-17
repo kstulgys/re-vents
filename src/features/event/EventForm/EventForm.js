@@ -15,11 +15,13 @@ const category = [
 
 const mapState = (state, ownProps) => {
   let event = {};
+
   const eventId = ownProps.match.params.id;
   if (eventId && state.events.length > 0) {
     event = state.events.filter(event => event.id === eventId)[0];
   }
   return { initialValues: event };
+
 };
 
 const actions = {
@@ -115,3 +117,4 @@ class EventForm extends Component {
 export default connect(mapState, actions)(
   reduxForm({ form: "eventForm", enableReinitialize: true })(EventForm)
 );
+
