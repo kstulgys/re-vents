@@ -1,12 +1,21 @@
 import React, { Component } from "react";
 import { Segment, Button, Form, Grid, Header } from "semantic-ui-react";
 import cuid from "cuid";
+import {
+  composeValidators,
+  combineValidators,
+  isRequired,
+  hasLengthGreaterThan
+} from "revalidate";
+import moment from "moment";
 import { connect } from "react-redux";
 import { createEvent, updateEvent } from "../eventActions";
 import { reduxForm, Field } from "redux-form";
 import TextInput from "../../../app/common/form/TextInput";
 import TextArea from "../../../app/common/form/TextArea";
 import SelectInput from "../../../app/common/form/SelectInput";
+import DateInput from "../../../app/common/form/DateInput";
+
 const category = [
   { key: "drinks", text: "Drinks", value: "drinks" },
   { key: "dance", text: "Dance", value: "dance" },
@@ -21,7 +30,6 @@ const mapState = (state, ownProps) => {
     event = state.events.filter(event => event.id === eventId)[0];
   }
   return { initialValues: event };
-
 };
 
 const actions = {
@@ -29,8 +37,23 @@ const actions = {
   updateEvent
 };
 
+const validate = combineValidators({
+  title: isRequired({ message: "title os required" }),
+  category: isRequired({ message: "category os required" }),
+  city: isRequired("city"),
+  venue: isRequired("venue"),
+  date: isRequired("date"),
+  description: composeValidators(
+    isRequired({ message: "description is required" }),
+    hasLengthGreaterThan(10)({
+      message: "length has to be greater than 10 characters"
+    })
+  )()
+});
+
 class EventForm extends Component {
   handleSubmit = values => {
+    values.date = moment(values.date).format();
     if (this.props.initialValues.id) {
       this.props.updateEvent(values);
       this.props.history.goBack();
@@ -48,6 +71,7 @@ class EventForm extends Component {
   };
 
   render() {
+    const { invalid, submitting, pristine } = this.props;
     return (
       <Grid>
         <Grid.Column width={10}>
@@ -75,12 +99,7 @@ class EventForm extends Component {
                 name="description"
               />
               <Header sub content="Location Details" color="orange" />
-              <Field
-                component={TextInput}
-                type="text"
-                placeholder="Event Date"
-                name="date"
-              />
+
               <Field
                 component={TextInput}
                 type="text"
@@ -93,8 +112,17 @@ class EventForm extends Component {
                 placeholder="Venue"
                 name="venue"
               />
-
+              <Field
+                component={DateInput}
+                dateFormat="YYYY-MM-DD HH:mm"
+                timeFormat="HH:mm"
+                showTimeSelect
+                placeholder="Event Date"
+                name="date"
+                type="text"
+              />
               <Button
+                disabled={invalid || submitting || pristine}
                 onClick={this.props.handleSubmit(this.handleSubmit)}
                 basic
                 content="Submit"
@@ -115,6 +143,7 @@ class EventForm extends Component {
 }
 
 export default connect(mapState, actions)(
-  reduxForm({ form: "eventForm", enableReinitialize: true })(EventForm)
+  reduxForm({ form: "eventForm", enableReinitialize: true, validate })(
+    EventForm
+  )
 );
-
