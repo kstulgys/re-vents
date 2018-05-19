@@ -3,104 +3,114 @@ import { CREATE_EVENT, UPDATE_EVENT, DELETE_EVENT } from "./eventConstants";
 
 const initialState = [
   {
-    id: "56c2a66a-a826-4d5e-a0e7-2c978138c7e3",
-    title: "felis ut at dolor",
-    date: "2017-12-27",
-    category: "Secured",
+    id: "fb0ecafa-3e8b-45dd-b2b1-3c7051c1608a",
+    title: "id sapien",
+    date: "2017-08-08",
+    category: "benchmark",
     description:
-      "vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus",
-    city: "Tōno",
-    venue: "66948 Meadow Valley Center",
-    hostedBy: "Gib Stooke",
+      "cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae",
+    city: "Düsseldorf",
+    venue: "336 Merrick Road",
+    hostedBy: "Halie Ralls",
     hostPhotoUrl:
-      "https://robohash.org/ipsumquoautem.jpg?size=100x100&set=set1",
+      "https://robohash.org/nonvoluptatibusomnis.jpg?size=100x100&set=set1",
     attendees: [
       {
-        id: "4864537a-3e8a-4229-86c8-be5c9c0c6261",
-        name: "Lemmie",
-        photoUrl: "https://robohash.org/suntquianulla.png?size=100x100&set=set1"
-      },
-      {
-        id: "6ba80e10-a2dd-47f3-93dd-c398ff86f631",
-        name: "Giorgi",
+        id: "43657db9-41aa-4a03-b6de-1906b7c33f20",
+        name: "Tildi",
         photoUrl:
-          "https://robohash.org/autemquinumquam.png?size=100x100&set=set1"
+          "https://robohash.org/etquibusdamvoluptatem.jpg?size=100x100&set=set1"
       },
       {
-        id: "78de2233-0c67-4bce-8130-b8bb0963d8f3",
-        name: "Tawnya",
-        photoUrl: "https://robohash.org/laboresitnisi.jpg?size=100x100&set=set1"
-      },
-      {
-        id: "6b27d66d-a6de-4c97-ad11-5682b854380f",
-        name: "Robinette",
+        id: "ae22d7a2-526d-4ea8-8111-7a6dfa740d77",
+        name: "Sidoney",
         photoUrl:
-          "https://robohash.org/uttemporamolestiae.bmp?size=100x100&set=set1"
+          "https://robohash.org/inciduntsedtempora.png?size=100x100&set=set1"
+      },
+      {
+        id: "5a48b689-9f96-4305-a99b-1130fa6d50b8",
+        name: "Ardis",
+        photoUrl:
+          "https://robohash.org/aliquidsimiliquereprehenderit.png?size=100x100&set=set1"
       }
-    ]
+    ],
+    venueLatLng: {
+      lat: 51.3305246,
+      lng: 6.7625867
+    }
   },
   {
-    id: "099c3b52-9934-4121-b545-f6918b1c5f83",
-    title: "aenean fermentum donec",
-    date: "2018-03-27",
-    category: "architecture",
+    id: "a09a1880-da26-4f11-b497-62a615160196",
+    title: "eros suspendisse accumsan",
+    date: "2017-11-06",
+    category: "eco-centric",
     description:
-      "potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus",
-    city: "Łapsze Niżne",
-    venue: "7 Johnson Point",
-    hostedBy: "Gayla Starbeck",
-    hostPhotoUrl: "https://robohash.org/utetut.bmp?size=100x100&set=set1",
+      "hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt",
+    city: "Richmond",
+    venue: "740 Riverside Drive",
+    hostedBy: "Elaine Girth",
+    hostPhotoUrl: "https://robohash.org/quiaoptionon.jpg?size=100x100&set=set1",
     attendees: [
       {
-        id: "af22b3fe-e42e-4a1c-850c-c0c90aa8c5a5",
-        name: "Zebulen",
-        photoUrl: "https://robohash.org/namillout.bmp?size=100x100&set=set1"
-      },
-      {
-        id: "88e4da2d-485c-440c-b63d-412a51f15516",
-        name: "Pace",
+        id: "bcac1f53-45d3-4862-9de9-f71d6367b900",
+        name: "Ardyce",
         photoUrl:
-          "https://robohash.org/earumenimvoluptatem.png?size=100x100&set=set1"
+          "https://robohash.org/blanditiisvoluptasquod.bmp?size=100x100&set=set1"
       },
       {
-        id: "22359c21-c9ed-4029-a3c2-c0e045eafff9",
-        name: "Nicholle",
-        photoUrl: "https://robohash.org/harumquiquo.png?size=100x100&set=set1"
-      },
-      {
-        id: "ee8660b6-ba70-4b11-b120-b4404ae03923",
-        name: "Florinda",
+        id: "caff4165-edc6-4420-85f1-efa2a7689ee3",
+        name: "Juliann",
         photoUrl:
-          "https://robohash.org/sintvoluptatepraesentium.png?size=100x100&set=set1"
+          "https://robohash.org/veritatisiddeserunt.bmp?size=100x100&set=set1"
       }
-    ]
+    ],
+    venueLatLng: {
+      lat: 37.9429182,
+      lng: -77.3469946
+    }
   },
   {
-    id: "c40c3061-1e1c-4370-a79c-c17606330442",
-    title: "vel augue",
-    date: "2017-05-12",
-    category: "instruction set",
+    id: "66417103-0910-4831-9eb7-92325f846ace",
+    title: "rutrum rutrum neque aenean",
+    date: "2018-04-30",
+    category: "context-sensitive",
     description:
-      "elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio",
-    city: "Kanghe",
-    venue: "0 American Ash Parkway",
-    hostedBy: "Lief Cleary",
+      "neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem",
+    city: "Cetinje",
+    venue: "553 Utah Alley",
+    hostedBy: "Angele de Copeman",
     hostPhotoUrl:
-      "https://robohash.org/sunthicdolores.png?size=100x100&set=set1",
+      "https://robohash.org/autemquaererum.png?size=100x100&set=set1",
     attendees: [
       {
-        id: "b6f334d2-7940-4382-a132-7f35e0a72223",
-        name: "Silas",
+        id: "8dd1487a-ee62-4e10-9b15-c91e4b694e61",
+        name: "Darcey",
         photoUrl:
-          "https://robohash.org/velessenecessitatibus.bmp?size=100x100&set=set1"
+          "https://robohash.org/istenihilnumquam.bmp?size=100x100&set=set1"
       },
       {
-        id: "d56fa6e2-3269-4276-8c27-4a45f9155d8c",
-        name: "Dionne",
+        id: "2748ff93-abf0-49e1-b851-778e2a3917c3",
+        name: "Blondie",
         photoUrl:
-          "https://robohash.org/eumcorporislaboriosam.png?size=100x100&set=set1"
+          "https://robohash.org/essedignissimosquidem.jpg?size=100x100&set=set1"
+      },
+      {
+        id: "1ea4c288-983b-49b9-a684-4e42b60aaa73",
+        name: "Horst",
+        photoUrl:
+          "https://robohash.org/facilistemporaexplicabo.bmp?size=100x100&set=set1"
+      },
+      {
+        id: "640308dd-ed58-496c-ba3c-95c0d06a2a29",
+        name: "Angelo",
+        photoUrl:
+          "https://robohash.org/magnamquiimpedit.jpg?size=100x100&set=set1"
       }
-    ]
+    ],
+    venueLatLng: {
+      lat: 42.3930959,
+      lng: 18.9115964
+    }
   }
 ];
 

@@ -63,6 +63,7 @@ const styles = {
     fontWeight: "bold",
     color: "white",
     fontSize: 38,
-    paddingBottom: 25
+    paddingBottom: 25,
+    zIndex: 1000
   }
 };
