@@ -114,12 +114,14 @@ class EventForm extends Component {
               />
               <Field
                 component={DateInput}
-                dateFormat="YYYY-MM-DD HH:mm"
-                timeFormat="HH:mm"
+                placeholderText="Pick the date"
                 showTimeSelect
+                timeFormat="HH:mm"
+                timeIntervals={15}
+                dateFormat="LLL"
+                timeCaption="time"
                 placeholder="Event Date"
                 name="date"
-                type="text"
               />
               <Button
                 disabled={invalid || submitting || pristine}
@@ -137,6 +139,7 @@ class EventForm extends Component {
             </Form>
           </Segment>
         </Grid.Column>
+        <Grid.Column width={6} />
       </Grid>
     );
   }

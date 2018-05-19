@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import EventListItem from "./EventListItem";
-
 const EventList = ({ events, onEventDelete }) => (
   <div>
     {events.map(event => (

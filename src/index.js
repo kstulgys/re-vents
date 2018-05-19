@@ -7,11 +7,13 @@ import App from "./app/layout/App";
 import { configureStore } from "./app/store/configureStore";
 import ScrollToTop from "./app/common/util/ScrollToTop";
 const store = configureStore();
+import SimpleForm from "./features/test/SimpleForm";
 
 render(
   <Provider store={store}>
     <BrowserRouter>
       <ScrollToTop>
+        <SimpleForm />
         <App />
       </ScrollToTop>
     </BrowserRouter>
