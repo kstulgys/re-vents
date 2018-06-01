@@ -7,7 +7,8 @@ import PeopleDashboardPage from "../../features/user/PeopleDashboard/PeopleDashb
 import UserDetailedPage from "../../features/user/UserDetailed/UserDetailedPage";
 import SettingsDashboard from "../../features/user/settings/SettingsDashboard";
 import EventForm from "../../features/event/EventForm/EventForm";
-
+import TestComponent from "../../features/test/TestComponent";
+import ModalManager from "../../features/modal/ModalManager";
 import { Route, Switch } from "react-router-dom";
 import { Container } from "semantic-ui-react";
 
@@ -15,6 +16,7 @@ class App extends Component {
   render() {
     return (
       <div style={{ backgroundColor: "#f6f6f6" }}>
+        <ModalManager />
         <Switch>
           <Route exact path="/" component={HomePage} />
         </Switch>
@@ -33,6 +35,7 @@ class App extends Component {
                   <Route path="/manage/:id" component={EventForm} />
                   <Route path="/settings" component={SettingsDashboard} />
                   <Route path="/createEvent" component={EventForm} />
+                  <Route path="/test" component={TestComponent} />
                 </Switch>
               </Container>
             </div>

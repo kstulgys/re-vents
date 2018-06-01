@@ -40,6 +40,7 @@ class NavBar extends Component {
           <Menu.Item as={Link} to="/">
             <Icon name="home" size="large" />
           </Menu.Item>
+          <Menu.Item as={NavLink} to="/test" name="Test" />
 
           <Menu.Item as={NavLink} to="/events" name="Events" />
           {authenticated && (
