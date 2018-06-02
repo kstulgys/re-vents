@@ -1,8 +1,15 @@
 import React from "react";
-import { Menu } from "semantic-ui-react";
+import { Menu, Button } from "semantic-ui-react";
 
-const SignedOut = ({ onSignIn }) => (
-  <Menu.Item name="Sign In" onClick={onSignIn} />
+const SignedOut = ({ onSignIn, register }) => (
+  <Menu.Item>
+    <Button content="Sign In" onClick={onSignIn} />
+    <Button
+      content="Register"
+      onClick={register}
+      style={{ marginLeft: "0.5em" }}
+    />
+  </Menu.Item>
 );
 
 export default SignedOut;
