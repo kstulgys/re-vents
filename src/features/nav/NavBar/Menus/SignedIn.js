@@ -2,7 +2,7 @@ import React from "react";
 import { Menu, Dropdown, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-const SignedIn = ({ onSignOut }) => {
+const SignedIn = ({ onSignOut, currentUser }) => {
   const trigger = (
     <span>
       <Image
@@ -10,7 +10,7 @@ const SignedIn = ({ onSignOut }) => {
         avatar
         src="https://robohash.org/ipsumquoautem.jpg?size=100x100&set=set1"
       />
-      Some Name
+      {currentUser}
     </span>
   );
 
