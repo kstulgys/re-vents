@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-import EventDetailedMap from "./EventDetailedMap";
-
-import { Grid, Segment, Icon, Item, Header, Button } from "semantic-ui-react";
+import React, { Component } from "react"
+import EventDetailedMap from "./EventDetailedMap"
+import { format } from "date-fns"
+import { Grid, Segment, Icon, Item, Header, Button } from "semantic-ui-react"
 
 class EventDetailedInfo extends Component {
   state = {
     showMap: false
-  };
+  }
 
   mapToggle = () => {
-    this.setState(prevState => ({ showMap: !prevState.showMap }));
-  };
+    this.setState(prevState => ({ showMap: !prevState.showMap }))
+  }
   render() {
-    const { event } = this.props;
+    const { event } = this.props
     return (
       <Segment.Group raised>
         <Segment attached="top">
@@ -31,7 +31,10 @@ class EventDetailedInfo extends Component {
               <Icon name="calendar" size="large" color="orange" />
             </Grid.Column>
             <Grid.Column width={15}>
-              <p>{event.date}</p>
+              <p>{`${format(event.date, "dddd Do MMM")} at ${format(
+                event.date,
+                "h:mm A"
+              )}`}</p>
             </Grid.Column>
           </Grid>
         </Segment>
@@ -61,8 +64,8 @@ class EventDetailedInfo extends Component {
           />
         )}
       </Segment.Group>
-    );
+    )
   }
 }
 
-export default EventDetailedInfo;
+export default EventDetailedInfo

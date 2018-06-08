@@ -1,7 +1,8 @@
-import React from "react";
-import { Segment, Button, Item, List } from "semantic-ui-react";
-import { Link } from "react-router-dom";
-import EventListAtendee from "./EventListAtendee";
+import React from "react"
+import { Segment, Button, Item, List } from "semantic-ui-react"
+import { Link } from "react-router-dom"
+import EventListAtendee from "./EventListAtendee"
+import { format } from "date-fns"
 
 const EventListItem = ({ event, onEventDelete }) => {
   return (
@@ -14,7 +15,14 @@ const EventListItem = ({ event, onEventDelete }) => {
               <Item.Header as="a">{event.title}</Item.Header>
               <Item.Meta>
                 <List horizontal>
-                  <List.Item icon="calendar" content={event.date} /> |
+                  <List.Item
+                    icon="calendar"
+                    content={`${format(event.date, "dddd Do MMMM")} at ${format(
+                      event.date,
+                      "HH:mm"
+                    )}`}
+                  />{" "}
+                  |
                   <List.Item icon="marker" content={event.venue} />
                 </List>
               </Item.Meta>
@@ -51,7 +59,7 @@ const EventListItem = ({ event, onEventDelete }) => {
         </List>
       </Segment>
     </Segment.Group>
-  );
-};
+  )
+}
 
-export default EventListItem;
+export default EventListItem
