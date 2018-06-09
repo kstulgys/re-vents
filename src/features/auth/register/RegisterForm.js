@@ -1,10 +1,16 @@
-import React from "react";
-import { Button, Form, Segment } from "semantic-ui-react";
-import { Field, reduxForm } from "redux-form";
-import TextInupt from "../../../app/common/form/TextInput";
+import React from "react"
+import { connect } from "react-redux"
+import { Button, Form, Segment } from "semantic-ui-react"
+import { Field, reduxForm } from "redux-form"
+import TextInupt from "../../../app/common/form/TextInput"
+import { registerUser } from "../authActions"
 
-const RegisterForm = () => (
-  <Form size="large">
+const actions = {
+  registerUser
+}
+
+const RegisterForm = ({ handleSubmit, registerUser }) => (
+  <Form size="large" onSubmit={handleSubmit(registerUser)}>
     <Field
       name="displayName"
       component={TextInupt}
@@ -15,12 +21,15 @@ const RegisterForm = () => (
     <Field
       name="password"
       component={TextInupt}
-      type="text"
+      type="password"
       placeholder="password"
     />
 
     <Button fluid color="orange" type="submit" size="big" content="Register" />
   </Form>
-);
+)
 
-export default reduxForm({ form: "loginForm" })(RegisterForm);
+export default connect(
+  null,
+  actions
+)(reduxForm({ form: "loginForm" })(RegisterForm))
