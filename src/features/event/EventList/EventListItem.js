@@ -17,11 +17,11 @@ const EventListItem = ({ event, onEventDelete }) => {
                 <List horizontal>
                   <List.Item
                     icon="calendar"
-                    content={`${format(event.date, "dddd Do MMMM")} at ${format(
-                      event.date,
-                      "HH:mm"
-                    )}`}
-                  />{" "}
+                    content={`${format(
+                      event.date.toDate(),
+                      "dddd Do MMMM"
+                    )} at ${format(event.date.toDate(), "HH:mm")}`}
+                  />
                   |
                   <List.Item icon="marker" content={event.venue} />
                 </List>
@@ -53,8 +53,8 @@ const EventListItem = ({ event, onEventDelete }) => {
       <Segment secondary>
         <List horizontal>
           {event.attendees &&
-            event.attendees.map(attendee => (
-              <EventListAtendee key={attendee.id} attendee={attendee} />
+            Object.values(event.attendees).map((attendee, i) => (
+              <EventListAtendee key={i} attendee={attendee} />
             ))}
         </List>
       </Segment>
